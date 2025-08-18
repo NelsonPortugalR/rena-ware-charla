@@ -201,7 +201,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
     </style>
 </head>
-
+<!-- Agregar antes del </body> -->
+<div id="floatingCTA" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50" style="display: none;">
+    <a href="https://wa.me/51994607605?text=🎯%20Hola%20Nelson!%20Acabo%20de%20completar%20la%20charla%20informativa..." 
+       target="_blank" 
+       class="bg-amber-500 text-white font-bold py-3 px-6 rounded-full shadow-xl text-base cta-button inline-block">
+        🚀 ¡ME UNO! Quiero Mi Bonificación
+    </a>
+</div>
 <body class="bg-slate-50">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSKT2M5R"
@@ -466,7 +473,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             } else {
                 progressText.textContent = "🎉 ¡Completado! Ya tienes toda la información";
             }
-            
+            // Agregar al JavaScript existente, en la función updateTimer():
+            if (progress >= 25 && !document.getElementById('floatingCTA').style.display) {
+                document.getElementById('floatingCTA').style.display = 'block';
+            }
             // Verificar milestones
             Object.keys(milestones).forEach(milestone => {
                 if (progress >= milestone && !milestones[milestone]) {
