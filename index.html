@@ -473,10 +473,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             } else {
                 progressText.textContent = "🎉 ¡Completado! Ya tienes toda la información";
             }
-            // Agregar al JavaScript existente, en la función updateTimer():
-            if (progress >= 25 && !document.getElementById('floatingCTA').style.display) {
-                document.getElementById('floatingCTA').style.display = 'block';
+            
+            // Mostrar botón flotante después del 25%
+            const floatingCTA = document.getElementById('floatingCTA');
+            if (progress >= 25 && floatingCTA && floatingCTA.style.display === 'none') {
+                floatingCTA.style.display = 'block';
             }
+            
+            // Verificar milestones
+            Object.keys(milestones).forEach(milestone => {
+                if (progress >= milestone && !milestones[milestone]) {
+                    showMilestone(parseInt(milestone));
+                }
+            });
+            
+            // Mostrar mensaje de completación si ha visto más del 90%
+            if (watchedTime >= totalDuration * 0.9 && !milestones[90]) {
+                completionMessage.style.display = 'block';
+                completionMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
             // Verificar milestones
             Object.keys(milestones).forEach(milestone => {
                 if (progress >= milestone && !milestones[milestone]) {
