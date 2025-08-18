@@ -525,9 +525,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             ctaButton.style.animation = 'pulse-glow 1s infinite, shake 3s infinite';
         }
     }, 5000);
+    
+    /* Estilo mejorado para el botón flotante */
+    #floatingCTA {
+        animation: float-bounce 3s ease-in-out infinite;
+    }
+    
+    @keyframes float-bounce {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    #floatingCTA .cta-button {
+        box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+    }
+    
+    /* Responsive para móviles */
+    @media (max-width: 768px) {
+        #floatingCTA {
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        #floatingCTA .cta-button {
+            padding: 12px 20px;
+            font-size: 14px;
+        }
+    }
 </script>
 <!-- Agregar antes del </body> -->
-<div id="floatingCTA" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50" style="display: none;">
+<div id="floatingCTA" class="fixed bottom-6 right-6 z-50" style="display: none;">
     <a href="https://wa.me/51994607605?text=🎯%20Hola%20Nelson!%20Acabo%20de%20completar%20la%20charla%20informativa..."
         target="_blank"
         class="bg-amber-500 text-white font-bold py-3 px-6 rounded-full shadow-xl text-base cta-button inline-block">
