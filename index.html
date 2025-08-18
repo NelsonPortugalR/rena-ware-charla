@@ -363,166 +363,169 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </footer>
     </main>
-
     <script src="https://player.vimeo.com/api/player.js"></script>
-    <script>
-        // Vimeo Player API
-        const iframe = document.querySelector('iframe');
-        const player = new Vimeo.Player(iframe);
+<script>
+    // Vimeo Player API
+    const iframe = document.querySelector('iframe');
+    const player = new Vimeo.Player(iframe);
+    
+    let watchedTime = 0;
+    let totalDuration = 45 * 60; // 45 minutos en segundos
+    let lastPosition = 0;
+    let milestones = {25: false, 50: false, 75: false, 90: false};
+    let viewerCount = 27;
+    
+    // Elementos del DOM
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    const progressBar = document.getElementById('progressBar');
+    const completionMessage = document.getElementById('completionMessage');
+    const progressText = document.getElementById('progressText');
+    const milestoneContainer = document.getElementById('milestoneContainer');
+    const viewerCountEl = document.getElementById('viewerCount');
+    const floatingCTA = document.getElementById('floatingCTA'); // <--- AÑADIDO
+    
+    // Simular contador de viewers
+    function updateViewerCount() {
+        viewerCount += Math.random() > 0.6 ? 1 : (Math.random() > 0.8 ? -1 : 0);
+        viewerCount = Math.max(15, Math.min(45, viewerCount));
+        viewerCountEl.textContent = viewerCount;
+    }
+    
+    // Función para formatear tiempo
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return {
+            minutes: mins.toString().padStart(2, '0'),
+            seconds: secs.toString().padStart(2, '0')
+        };
+    }
+    
+    // Función para mostrar milestone
+    function showMilestone(percentage) {
+        if (milestones[percentage]) return;
+        milestones[percentage] = true;
         
-        let watchedTime = 0;
-        let totalDuration = 45 * 60; // 45 minutos en segundos
-        let lastPosition = 0;
-        let milestones = {25: false, 50: false, 75: false, 90: false};
-        let viewerCount = 27;
+        const messages = {
+            25: "🎯 ¡Excelente! Ya conoces los fundamentos",
+            50: "🔥 ¡Increíble! Estás a mitad del camino",
+            75: "⭐ ¡Casi ahí! Ya eres parte del 20% que llega tan lejos",
+            90: "🏆 ¡COMPLETADO! Eres parte del 5% más comprometido"
+        };
         
-        // Elementos del DOM
-        const minutesEl = document.getElementById('minutes');
-        const secondsEl = document.getElementById('seconds');
-        const progressBar = document.getElementById('progressBar');
-        const completionMessage = document.getElementById('completionMessage');
-        const progressText = document.getElementById('progressText');
-        const milestoneContainer = document.getElementById('milestoneContainer');
-        const viewerCountEl = document.getElementById('viewerCount');
+        const badge = document.createElement('div');
+        badge.className = 'milestone-badge';
+        badge.textContent = messages[percentage];
+        milestoneContainer.appendChild(badge);
         
-        // Simular contador de viewers
-        function updateViewerCount() {
-            viewerCount += Math.random() > 0.6 ? 1 : (Math.random() > 0.8 ? -1 : 0);
-            viewerCount = Math.max(15, Math.min(45, viewerCount));
-            viewerCountEl.textContent = viewerCount;
+        // Activar milestone visual
+        const milestoneEl = document.getElementById(`milestone${percentage}`);
+        if (milestoneEl) {
+            milestoneEl.style.transform = 'scale(1.05)';
+            milestoneEl.style.boxShadow = '0 8px 25px rgba(34, 197, 94, 0.3)';
         }
         
-        // Función para formatear tiempo
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = seconds % 60;
-            return {
-                minutes: mins.toString().padStart(2, '0'),
-                seconds: secs.toString().padStart(2, '0')
-            };
+        setTimeout(() => {
+            badge.style.opacity = '0.7';
+        }, 3000);
+    }
+    
+    // Función para actualizar el timer
+    function updateTimer() {
+        const time = formatTime(watchedTime);
+        minutesEl.textContent = time.minutes;
+        secondsEl.textContent = time.seconds;
+        
+        // Actualizar barra de progreso
+        const progress = (watchedTime / totalDuration) * 100;
+        progressBar.style.width = Math.min(progress, 100) + '%';
+        
+        // Actualizar texto de progreso
+        if (progress < 25) {
+            progressText.textContent = "🎬 Introducción - Descubriendo el modelo";
+        } else if (progress < 50) {
+            progressText.textContent = "💡 Fundamentos - Cómo funciona realmente";
+        } else if (progress < 75) {
+            progressText.textContent = "🚀 Oportunidad - Tu potencial de crecimiento";
+        } else if (progress < 90) {
+            progressText.textContent = "✨ Siguientes pasos - Plan de acción";
+        } else {
+            progressText.textContent = "🎉 ¡Completado! Ya tienes toda la información";
         }
         
-        // Función para mostrar milestone
-        function showMilestone(percentage) {
-            if (milestones[percentage]) return;
-            milestones[percentage] = true;
-            
-            const messages = {
-                25: "🎯 ¡Excelente! Ya conoces los fundamentos",
-                50: "🔥 ¡Increíble! Estás a mitad del camino",
-                75: "⭐ ¡Casi ahí! Ya eres parte del 20% que llega tan lejos",
-                90: "🏆 ¡COMPLETADO! Eres parte del 5% más comprometido"
-            };
-            
-            const badge = document.createElement('div');
-            badge.className = 'milestone-badge';
-            badge.textContent = messages[percentage];
-            milestoneContainer.appendChild(badge);
-            
-            // Activar milestone visual
-            const milestoneEl = document.getElementById(`milestone${percentage}`);
-            if (milestoneEl) {
-                milestoneEl.style.transform = 'scale(1.05)';
-                milestoneEl.style.boxShadow = '0 8px 25px rgba(34, 197, 94, 0.3)';
-            }
-            
-            setTimeout(() => {
-                badge.style.opacity = '0.7';
-            }, 3000);
+        // Mostrar botón flotante después del 25%
+        // Esta línea es la que controla la visibilidad.
+        if (progress >= 25 && floatingCTA) {
+            floatingCTA.style.display = 'block';
         }
         
-        // Función para actualizar el timer
-        function updateTimer() {
-            const time = formatTime(watchedTime);
-            minutesEl.textContent = time.minutes;
-            secondsEl.textContent = time.seconds;
-            
-            // Actualizar barra de progreso
-            const progress = (watchedTime / totalDuration) * 100;
-            progressBar.style.width = Math.min(progress, 100) + '%';
-            
-            // Actualizar texto de progreso
-            if (progress < 25) {
-                progressText.textContent = "🎬 Introducción - Descubriendo el modelo";
-            } else if (progress < 50) {
-                progressText.textContent = "💡 Fundamentos - Cómo funciona realmente";
-            } else if (progress < 75) {
-                progressText.textContent = "🚀 Oportunidad - Tu potencial de crecimiento";
-            } else if (progress < 90) {
-                progressText.textContent = "✨ Siguientes pasos - Plan de acción";
-            } else {
-                progressText.textContent = "🎉 ¡Completado! Ya tienes toda la información";
+        // Verificar milestones
+        Object.keys(milestones).forEach(milestone => {
+            if (progress >= milestone && !milestones[milestone]) {
+                showMilestone(parseInt(milestone));
             }
-            
-            // Mostrar botón flotante después del 25%
-            const floatingCTA = document.getElementById('floatingCTA');
-            if (progress >= 25 && floatingCTA && floatingCTA.style.display === 'none') {
-                floatingCTA.style.display = 'block';
-            }
-            
-            // Verificar milestones
-            Object.keys(milestones).forEach(milestone => {
-                if (progress >= milestone && !milestones[milestone]) {
-                    showMilestone(parseInt(milestone));
-                }
-            });
-            
-            // Mostrar mensaje de completación si ha visto más del 90%
-            if (watchedTime >= totalDuration * 0.9 && !milestones[90]) {
-                completionMessage.style.display = 'block';
-                completionMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        }        
-        // Escuchar eventos del reproductor
-        player.on('timeupdate', function(data) {
-            const currentTime = Math.floor(data.seconds);
-            
-            // Solo contar tiempo hacia adelante (no hacia atrás)
-            if (currentTime > lastPosition) {
-                watchedTime += (currentTime - lastPosition);
-            }
-            
-            lastPosition = currentTime;
-            updateTimer();
         });
         
-        // Obtener duración real del video
-        player.getDuration().then(function(duration) {
-            totalDuration = Math.floor(duration);
-        });
+        // Mostrar mensaje de completación si ha visto más del 90%
+        // Se cambió el nombre de la variable para ser más clara y no usar el objeto "milestones"
+        if (progress >= 90 && !completionMessage.hasBeenShown) {
+            completionMessage.style.display = 'block';
+            completionMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            completionMessage.hasBeenShown = true;
+        }
+    }
+    
+    // Escuchar eventos del reproductor
+    player.on('timeupdate', function(data) {
+        const currentTime = Math.floor(data.seconds);
         
-        // Prevenir que se salte demasiado hacia adelante
-        player.on('seeked', function(data) {
-            const currentTime = Math.floor(data.seconds);
-            
-            // Si salta más de 30 segundos hacia adelante, ajustar el tiempo visto
-            if (currentTime > lastPosition + 30) {
-                watchedTime = Math.min(watchedTime, currentTime - 30);
-            }
-            
-            lastPosition = currentTime;
-            updateTimer();
-        });
+        // Solo contar tiempo hacia adelante (no hacia atrás)
+        if (currentTime > lastPosition) {
+            watchedTime += (currentTime - lastPosition);
+        }
         
-        // Initializar timer
+        lastPosition = currentTime;
         updateTimer();
+    });
+    
+    // Obtener duración real del video
+    player.getDuration().then(function(duration) {
+        totalDuration = Math.floor(duration);
+    });
+    
+    // Prevenir que se salte demasiado hacia adelante
+    player.on('seeked', function(data) {
+        const currentTime = Math.floor(data.seconds);
         
-        // Actualizar contador de viewers cada 15-30 segundos
-        setInterval(updateViewerCount, Math.random() * 15000 + 15000);
+        // Si salta más de 30 segundos hacia adelante, ajustar el tiempo visto
+        if (currentTime > lastPosition + 30) {
+            watchedTime = Math.min(watchedTime, currentTime - 30);
+        }
         
-        // Animación mejorada del botón CTA basada en progreso
-        setInterval(function() {
-            const ctaButton = document.querySelector('.cta-button');
-            const progress = (watchedTime / totalDuration) * 100;
-            
-            if (progress >= 50) {
-                ctaButton.style.animation = 'pulse-glow 1.5s infinite';
-            }
-            if (progress >= 75) {
-                ctaButton.style.animation = 'pulse-glow 1s infinite, shake 3s infinite';
-            }
-        }, 5000);
-    </script>
+        lastPosition = currentTime;
+        updateTimer();
+    });
+    
+    // Inicializar timer
+    updateTimer();
+    
+    // Actualizar contador de viewers cada 15-30 segundos
+    setInterval(updateViewerCount, Math.random() * 15000 + 15000);
+    
+    // Animación mejorada del botón CTA basada en progreso
+    setInterval(function() {
+        const ctaButton = document.querySelector('.cta-button');
+        const progress = (watchedTime / totalDuration) * 100;
+        
+        if (progress >= 50) {
+            ctaButton.style.animation = 'pulse-glow 1.5s infinite';
+        }
+        if (progress >= 75) {
+            ctaButton.style.animation = 'pulse-glow 1s infinite, shake 3s infinite';
+        }
+    }, 5000);
+</script>
 <!-- Agregar antes del </body> -->
 <div id="floatingCTA" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50" style="display: none;">
     <a href="https://wa.me/51994607605?text=🎯%20Hola%20Nelson!%20Acabo%20de%20completar%20la%20charla%20informativa..."
