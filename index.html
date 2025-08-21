@@ -731,13 +731,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             90: "🏆 ¡LISTO! Tienes toda la info"
         };
         
+        // Crear contenedor para milestone + botón
+        const milestoneDiv = document.createElement('div');
+        milestoneDiv.style.marginBottom = '10px';
+        
         const badge = document.createElement('div');
         badge.className = 'milestone-badge';
         badge.textContent = messages[percentage];
-        milestoneContainer.appendChild(badge);
+        
+        const button = document.createElement('a');
+        button.href = 'https://wa.me/51994607605?text=%F0%9F%8E%89%20%C2%A1Nelson!%20Complet%C3%A9%20la%20charla%20y%20quiero%20empezar%20con%20Rena%20Ware...';
+        button.target = '_blank';
+        button.textContent = 'Únete ahora';
+        button.style.cssText = 'display: block; text-align: center; background: #22c55e; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; text-decoration: none; margin-top: 6px; transition: all 0.3s ease;';
+        button.onmouseover = function() { this.style.background = '#16a34a'; };
+        button.onmouseout = function() { this.style.background = '#22c55e'; };
+        
+        milestoneDiv.appendChild(badge);
+        milestoneDiv.appendChild(button);
+        milestoneContainer.appendChild(milestoneDiv);
         
         setTimeout(() => {
-            badge.style.opacity = '0.7';
+            milestoneDiv.style.opacity = '0.7';
         }, 3000);
     }
     
