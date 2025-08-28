@@ -256,7 +256,15 @@
             margin: 20px 0;
             text-align: center;
         }
+        /* --- ESTILOS PARA PAUSAR ANIMACIONES CON POP-UP --- */
+        .popup-is-open .cta-button,
+        .popup-is-open .map-pin {
+            animation-play-state: paused !important;
+            -webkit-animation-play-state: paused !important; /* Para compatibilidad */
+        }
     </style>
+    
+    
 </head>
 
 <body class="bg-white">
@@ -1277,24 +1285,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const declineButton = document.getElementById('decline-popup');
     let hasBeenShown = false;
 
-    // Función para mostrar el pop-up
+    // ...
     const showPopup = () => {
         if (hasBeenShown) return;
+        document.body.classList.add('popup-is-open'); // <-- LÍNEA AÑADIDA
         popup.classList.remove('hidden');
         setTimeout(() => {
             popupContent.classList.remove('scale-95', 'opacity-0');
             popupContent.classList.add('scale-100', 'opacity-100');
-        }, 50); // Pequeño delay para que la transición se vea
+        }, 50);
         hasBeenShown = true;
     };
-
-    // Función para ocultar el pop-up
+    
     const hidePopup = () => {
+        document.body.classList.remove('popup-is-open'); // <-- LÍNEA AÑADIDA
         popupContent.classList.add('scale-95', 'opacity-0');
         setTimeout(() => {
             popup.classList.add('hidden');
-        }, 300); // Espera a que la animación de salida termine
+        }, 300);
     };
+    // ...
 
     // Evento para detectar la intención de salida
     document.addEventListener('mouseout', (e) => {
