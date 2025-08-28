@@ -2,13 +2,22 @@
 <html lang="es" style="scroll-behavior: smooth;">
 
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TSKT2M5R');</script>
-<!-- End Google Tag Manager -->    
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TG5KBFCR');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🚀 Genera S/ 2,000 - S/ 5,000 EXTRA al Mes en Solo 5-8 Horas/Semana | Nelson Portugal</title>
@@ -16,25 +25,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
+        /* --- CONFIGURACIÓN GENERAL --- */
         body {
             font-family: 'Inter', sans-serif;
         }
+
         .hero-bg {
             background-color: #0c143d;
             background-image: linear-gradient(160deg, #0c143d 0%, #1a2c6c 100%);
         }
+
+        /* --- ESTILOS DE BOTONES Y ANIMACIONES --- */
         .cta-button {
             transition: all 0.3s ease;
             animation: pulse-glow 2s infinite;
             position: relative;
             overflow: hidden;
         }
+
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
         .cta-button::before {
             content: '';
             position: absolute;
@@ -42,60 +57,176 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.8s;
         }
-        
+
         .cta-button:hover::before {
             left: 100%;
         }
-        
+
         @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+            }
         }
-        
+
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
             75% { transform: translateX(5px); }
         }
         
-        .video-container {
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* --- COMPONENTES REUTILIZABLES --- */
+        .section-title {
+            font-weight: 800; /* semibold */
+            color: #1e293b; /* slate-800 */
+            line-height: 1.2;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 1.5rem; /* p-6 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-lg */
+            border: 1px solid #e2e8f0; /* border-slate-200 */
+            transition: all 0.3s ease;
+            height: 100%; /* Para que todas las tarjetas en una fila tengan la misma altura */
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); /* shadow-xl */
+        }
+        
+        .value-box {
+            background-color: #eff6ff; /* blue-50 */
+            border: 1px solid #93c5fd; /* blue-300 */
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 1.5rem; /* p-6 */
+        }
+
+
+        /* --- MOCKUPS Y ELEMENTOS ESPECIALES (Sin cambios significativos) --- */
+        .laptop-mockup {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border: 3px solid transparent;
-            background: linear-gradient(white, white) padding-box, linear-gradient(45deg, #f59e0b, #3b82f6) border-box;
+            max-width: 800px;
+            margin: 20px auto;
         }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+
+        .laptop-screen {
+            position: relative;
+            padding: 2.5%;
+            background: #111;
+            border-radius: 20px 20px 0 0;
+            border: 1px solid #444;
+            border-bottom: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .laptop-screen iframe {
+            display: block;
             width: 100%;
-            height: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 10px;
+        }
+
+        .laptop-screen::before {
+            content: '';
+            position: absolute;
+            top: 1.2%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #333;
+            border: 1px solid #555;
+            z-index: 2;
+        }
+
+        .laptop-base {
+            position: relative;
+            width: 100%;
+            height: 15px;
+            background: linear-gradient(to right, #d4d4d8, #e4e4e7, #d4d4d8);
+            border: 1px solid #a1a1aa;
+            border-top: 1px solid #71717a;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2) inset;
+        }
+
+        .laptop-notch {
+            position: absolute;
+            bottom: 95%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 6px;
+            background: #a1a1aa;
+            border-radius: 5px 5px 0 0;
         }
         
+        .phone-mockup {
+            position: relative;
+            max-width: 250px;
+            background: #111;
+            border: 8px solid #111;
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .phone-screen {
+            position: relative;
+            width: 100%;
+            padding-bottom: 177.77%; 
+            background: #000;
+            border-radius: 32px;
+            overflow: hidden;
+        }
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 6px;
+            background: #111;
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        /* --- Temporizador (Sin cambios) --- */
         .timer-container {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            border-radius: 12px;
-            padding: 15px;
+            border-radius: 10px;
+            padding: 6px 12px !important;
             text-align: center;
             color: white;
-            margin: 20px 0;
-            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.3);
+            margin: 20px auto;
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.25);
+            max-width: 500px;
         }
-        
-        .timer-number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: #fbbf24;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+
+        .reloj-numero {
+            font-size: 1.5rem !important;
+            line-height: 1.75rem !important;
+        }
+
+        #milestoneContainer {
+            min-height: 18px !important;
+            margin-bottom: 4px !important;
         }
         
         .progress-bar {
@@ -104,32 +235,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 6px;
             overflow: hidden;
-            margin-top: 15px;
+            margin-top: 8px !important;
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
         }
-        
+
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 50%, #22c55e 100%);
             width: 0%;
             transition: width 1s ease;
             border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.5);
-        }
-        
-        .attention-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border: 2px solid #f59e0b;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            animation: gentle-bounce 3s ease-in-out infinite;
-            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.2);
-        }
-        
-        @keyframes gentle-bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
         }
         
         .completion-message {
@@ -140,146 +255,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding: 20px;
             margin: 20px 0;
             text-align: center;
-            animation: celebration 0.8s ease-out;
-        }
-        
-        @keyframes celebration {
-            0% { transform: scale(0.8) rotate(-3deg); opacity: 0; }
-            50% { transform: scale(1.05) rotate(1deg); }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-        
-        .milestone-badge {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-            animation: milestone-pop 0.6s ease-out;
-        }
-        
-        @keyframes milestone-pop {
-            0% { transform: scale(0); }
-            80% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        .urgency-timer {
-            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-            color: white;
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            margin: 15px 0;
-            animation: urgent-pulse 2s infinite;
-        }
-        
-        @keyframes urgent-pulse {
-            0%, 100% { background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); }
-            50% { background: linear-gradient(135deg, #ef4444 0%, #f87171 100%); }
-        }
-        
-        .viewer-counter {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-        
-        .section-title {
-            font-weight: 900;
-            color: #1a2c6c;
-        }
-        
-        .benefit-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 15px 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .value-box {
-            background: #f0f9ff;
-            border: 2px solid #0284c7;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .urgency-box {
-            background: #fef2f2;
-            border-left: 4px solid #ef4444;
-            border-radius: 0 8px 8px 0;
-            padding: 16px;
-            margin: 20px 0;
-        }
-        
-        .info-box {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            padding: 16px;
         }
     </style>
 </head>
-<body class="bg-slate-50">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSKT2M5R"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
-<header class="bg-white text-blue-900 shadow-sm sticky top-0 w-full z-50">
-    <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center text-center">
-        <h1 class="text-xl md:text-2xl font-bold mb-2 sm:mb-0">LA DIFERENCIA DE RENA WARE</h1>
-        
-        <a href="https://wa.me/51994607605?text=🎉%20¡Nelson!%20Completé%20la%20charla%20y%20quiero%20empezar%20con%20Rena%20Ware..."
-            target="_blank"
-            class="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-2 px-6 rounded-full shadow-lg text-sm md:text-base cta-button inline-block">
-            💬 ¡Quiero unirme ahora! 🚀
-        </a>
-    </div>
-</header>
+<body class="bg-white">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TG5KBFCR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header class="bg-white text-blue-900 shadow-sm sticky top-0 w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center text-center">
+            <h1 class="text-xl md:text-2xl font-bold mb-2 sm:mb-0">LA DIFERENCIA DE RENA WARE</h1>
+            <a href="https://wa.me/51994607605?text=🎉%20¡Nelson!%20Completé%20la%20charla%20y%20quiero%20empezar%20con%20Rena%20Ware..." target="_blank" class="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-2 px-6 rounded-full shadow-lg text-sm md:text-base cta-button inline-block">
+                💬 ¡Quiero unirme ahora! 🚀
+            </a>
+        </div>
+    </header>
 
-<main>
-    <!-- Hero Section -->
-    <section class="hero-bg text-white py-6 md:py-8">
-        <div class="container mx-auto px-6 text-center">
-            <div class="max-w-4xl mx-auto">
-                <div class="inline-flex items-center bg-green-500 text-white px-4 py-2 rounded-full font-bold text-sm mb-3">
-                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    ✅ ACCESO CONFIRMADO A LA CHARLA
-                </div>
-                
-                <h1 class="text-2xl md:text-4xl font-black mb-2 leading-tight">
-                    🚀 Genera <span class="text-amber-400">S/ 2,000 - S/ 5,000</span><br>
-                    EXTRA al Mes <span class="text-green-400">en Solo 5-8 Horas/Semana</span>
+    <main>
+        <section class="hero-bg text-white py-16 md:py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-3xl md:text-5xl font-black mb-3 leading-tight">
+                    🚀 Genera <span class="text-amber-400">S/ 2,000 - S/ 5,000<span class="text-white"> en Solo 5-8 Horas/Semana</span>
                 </h1>
-                
-                <p class="text-sm md:text-base text-slate-300 max-w-3xl mx-auto mb-3">
-                    <span class="font-bold text-amber-300">3,847 peruanos</span> ya generan ingresos adicionales con 
+                <p class="text-md md:text-lg text-slate-300 max-w-3xl mx-auto mb-6">
+                    <span class="font-bold text-amber-300">3,847 peruanos</span> ya generan ingresos adicionales con
                     <span class="font-bold text-amber-300">RENA WARE</span> desde 1965 - sin invertir en productos, sin entregas, sin cobranzas
                 </p>
-                
                 <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg p-4 max-w-2xl mx-auto">
                     <div class="flex items-center justify-center text-white">
                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -289,566 +289,1033 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Video Section -->
-    <section class="py-4 md:py-6 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                
-                <!-- Urgencia -->
-                <div class="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-4 mb-6">
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0">
-                            <svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                            </svg>
+        <section class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+
+                    <div id="urgency-container" class="bg-red-50 border-2 border-red-300 rounded-lg p-4 mb-6 shadow-md">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-base font-bold text-red-800">🔥 ¡Atención! Cupos Limitados</h3>
+                            <div class="text-sm font-semibold text-red-700">
+                                Solo Quedan <span id="spots-left" class="text-lg font-black text-red-600">7</span>
+                            </div>
                         </div>
-                        <div class="ml-3">
-                            <h3 class="text-sm font-medium text-red-800">Solo quedan 7 cupos</h3>
-                            <p class="text-sm text-red-700">Para garantizar acompañamiento personalizado.</p>
+                        <div class="w-full bg-red-200 rounded-full h-4 overflow-hidden">
+                            <div id="spots-bar" class="bg-gradient-to-r from-red-500 to-red-700 h-4 rounded-full text-center text-white text-xs font-bold transition-all duration-500" style="width: 70%;">
+                                ¡Asegura el tuyo!
+                            </div>
+                        </div>
+                        <p class="text-xs text-red-600 mt-2 text-center">Para garantizar un acompañamiento 1-a-1 de alta calidad.</p>
+                    </div>
+
+                    <div class="laptop-mockup mb-8">
+                        <div class="laptop-screen">
+                            <iframe src="https://player.vimeo.com/video/1112098464?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&muted=0&autoplay=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Charla Informativa Rena Ware">
+                            </iframe>
+                        </div>
+                        <div class="laptop-base">
+                            <div class="laptop-notch"></div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Video Container -->
-                <div class="video-container mb-4">
-                    <iframe 
-                        src="https://player.vimeo.com/video/1112098464?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&muted=0&autoplay=0" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                        title="Charla Informativa Rena Ware">
-                    </iframe>
-                </div>
-                
-                <!-- Timer Container -->
-                <div class="timer-container">
-                    <h3 class="text-base font-bold mb-1">⏱️ Tu Progreso de Aprendizaje</h3>
-                    <div class="flex justify-center items-center space-x-3 mb-1">
-                        <div>
-                            <div class="text-2xl font-black text-amber-400" id="minutes">00</div>
-                            <div class="text-xs">Min</div>
+
+                    <div class="timer-container">
+                        <h3 class="text-base font-bold mb-1">⏱️ Tiempo Restante para Desbloquear tu Potencial</h3>
+                        <div class="flex justify-center items-center space-x-3 mb-1">
+                            <div>
+                                <div class="font-black text-amber-400 reloj-numero" id="minutes">00</div>
+                                <div class="text-xs">Min</div>
+                            </div>
+                            <div class="text-xl font-bold">:</div>
+                            <div>
+                                <div class="font-black text-amber-400 reloj-numero" id="seconds">00</div>
+                                <div class="text-xs">Seg</div>
+                            </div>
                         </div>
-                        <div class="text-xl font-bold">:</div>
-                        <div>
-                            <div class="text-2xl font-black text-amber-400" id="seconds">00</div>
-                            <div class="text-xs">Seg</div>
+                        <div id="milestoneContainer" class="mb-1" style="min-height: 20px;"></div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressBar"></div>
+                        </div>
+                        <div class="text-xs opacity-75 mt-1" id="progressText">🎬 Comenzando tu entrenamiento...</div>
+                    </div>
+
+                    <div class="completion-message" id="completionMessage">
+                        <h3 class="text-xl font-bold text-green-800 mb-2">
+                            🎉 ¡FELICIDADES! Completaste la Charla Informativa
+                        </h3>
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-3">
+                            <p class="text-green-700 font-bold mb-1">
+                                🎁 AHORA RECIBES TODO ESTO POR SOLO S/ 60:
+                            </p>
+                            <p class="text-green-600 text-sm">
+                                ✅ Comisiones del 15% al 27% por cada venta que realices<br>
+                                ✅ Acompañamiento personalizado hasta generar S/ 5,000/mes<br>
+                                ✅ Kit de inicio + 6 bisturís profesionales
+                            </p>
+                        </div>
+                        <a href="https://wa.me/51994607605?text=🎉%20¡Nelson!%20Completé%20la%20charla%20y%20quiero%20empezar%20con%20Rena%20Ware..." target="_blank" class="bg-green-500 text-white font-bold py-3 px-8 rounded-lg shadow-xl text-lg cta-button inline-block">
+                            🚀 ¡QUIERO EMPEZAR YA!
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl section-title mb-12">
+                        ¿Te Suena Familiar?
+                    </h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="benefit-card text-center border-l-4 border-red-400">
+                            <div class="text-4xl mb-3 text-red-600">💰</div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-3">"El sueldo ya no me alcanza"</h3>
+                            <p class="text-slate-600">Quieres pagar la maestría, el colegio de tus hijos, o simplemente ahorrar más sin que la inflación te gane.</p>
+                        </div>
+                        <div class="benefit-card text-center border-l-4 border-red-400">
+                            <div class="text-4xl mb-3 text-red-600">⏰</div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-3">"No tengo tiempo para otro trabajo"</h3>
+                            <p class="text-slate-600">Ya trabajas 8+ horas. ¿Cómo conseguir ingresos extra sin sacrificar tiempo con tu familia?</p>
+                        </div>
+                        <div class="benefit-card text-center border-l-4 border-red-400">
+                            <div class="text-4xl mb-3 text-red-600">📦</div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-3">"Los negocios son muy riesgosos"</h3>
+                            <p class="text-slate-600">Emprender significa deudas, inventario, planillas y un alto riesgo de perderlo todo. Buscas algo más seguro.</p>
                         </div>
                     </div>
-                    <div id="milestoneContainer" class="mb-1" style="min-height: 20px;"></div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressBar"></div>
-                    </div>
-                    <div class="text-xs opacity-75 mt-1" id="progressText">🎬 Comenzando tu entrenamiento...</div>
-                </div>
-                
-                <!-- Completion Message -->
-                <div class="completion-message" id="completionMessage">
-                    <h3 class="text-xl font-bold text-green-800 mb-2">
-                        🎉 ¡FELICIDADES! Completaste tu entrenamiento
-                    </h3>
-                    <div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-3">
-                        <p class="text-green-700 font-bold mb-1">
-                            🎁 AHORA RECIBES TODO ESTO POR SOLO S/ 60:
+                    <div class="value-box text-center mt-12">
+                        <h3 class="text-xl font-bold text-blue-800 mb-2">
+                            💡 Existe una solución
+                        </h3>
+                        <p class="text-blue-700">
+                            <strong>Un modelo que rompe con todos esos problemas.</strong> Se llama Rena Ware y ha funcionado durante 59 años en Perú.
                         </p>
-                        <p class="text-green-600 text-sm">
-                            ✅ Comisiones del 15% al 27% por cada venta<br>
-                            ✅ Acompañamiento personalizado hasta generar S/ 5,000/mes<br>
-                            ✅ Kit de inicio + 6 bisturís profesionales
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl section-title mb-12">
+                        Ellos Empezaron Igual que Tú...
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                        <div class="bg-slate-50 p-8 rounded-xl shadow-lg border border-slate-200 text-center transform hover:scale-105 transition-transform duration-300">
+                            <img src="https://cristinaroman.com.pe/assets/img/testimonials/juan_carlos_ezaine.webp" alt="Testimonio de Juan Carlos Ezaine" class="w-24 h-24 rounded-full mx-auto mb-5 border-4 border-blue-400 object-cover shadow-md">
+                            <p class="text-slate-600 italic text-lg mb-5">"Dejé mi carrera en un banco buscando un cambio real. Con Rena Ware, no solo rompí los límites de un sueldo, sino que desperté un liderazgo que no conocía. Hoy lidero equipos en todo el Perú. Es más que un negocio, es la oportunidad de rediseñar tu vida con propósito."</p>
+                            <p class="font-bold text-xl text-blue-900">Juan Carlos Ezaine</p>
+                            <p class="text-md text-slate-500">Ex-Ejecutivo Bancario.</p>
+                        </div>
+                        <div class="bg-slate-50 p-8 rounded-xl shadow-lg border border-slate-200 text-center transform hover:scale-105 transition-transform duration-300">
+                            <img src="https://cristinaroman.com.pe/assets/img/about/one.webp" alt="Testimonio de Cristina Roman" class="w-24 h-24 rounded-full mx-auto mb-5 border-4 border-blue-400 object-cover shadow-md">
+                            <p class="text-slate-600 italic text-lg mb-5">"Llegué a una nueva ciudad sin trabajo ni contactos, solo con mis ganas de superarme. Rena Ware fue mi oportunidad. Gracias a este negocio, he conocido más de 80 países, pagué la universidad de mis hijos en el extranjero y hemos recorrido el mundo en familia."</p>
+                            <p class="font-bold text-xl text-blue-900">Cristina Román</p>
+                            <p class="text-md text-slate-500">Nutricionista.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl section-title mb-12">
+                        🏆 Rena Ware: Una Empresa en la que SÍ Puedes Confiar
+                    </h2>
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="benefit-card text-center">
+                            <div class="text-5xl font-black text-blue-900 mb-2">80+</div>
+                            <p class="text-slate-600 font-semibold">Años a nivel Global</p>
+                        </div>
+                        <div class="benefit-card text-center">
+                             <div class="text-5xl font-black text-blue-900 mb-2">59</div>
+                            <p class="text-slate-600 font-semibold">Años de Confianza en el Perú</p>
+                        </div>
+                        <div class="benefit-card text-center">
+                            <div class="text-5xl font-black text-blue-900 mb-2">NSF</div>
+                            <p class="text-slate-600 font-semibold">Certificación Internacional</p>
+                        </div>
+                    </div>
+                    <div class="value-box text-center">
+                        <h3 class="text-xl font-bold text-blue-800 mb-2">
+                            🎯 El Secreto: Clientes Esperando
+                        </h3>
+                        <p class="text-blue-700">
+                            <strong>150,000 familias peruanas buscan Rena Ware cada año.</strong>
+                            No faltan clientes, ¡faltan representantes como tú!
                         </p>
                     </div>
-                    <a href="https://wa.me/51994607605?text=🎉%20¡Nelson!%20Completé%20la%20charla%20y%20quiero%20empezar%20con%20Rena%20Ware..."
-                       target="_blank"
-                       class="bg-green-500 text-white font-bold py-3 px-8 rounded-lg shadow-xl text-lg cta-button inline-block">
-                        🚀 ¡QUIERO EMPEZAR YA!
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Resumen Rápido -->
-    <section class="py-8 bg-slate-100">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-2xl md:text-3xl section-title mb-6">
-                    ⚡ Resumen en 2 minutos
-                </h2>
-                <p class="text-lg text-slate-700 mb-6">
-                    Si no puedes ver los 22 minutos, aquí tienes <span class="font-bold text-amber-600">lo ESENCIAL</span>
-                </p>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- El Problema -->
-                    <div class="benefit-card text-left">
-                        <h3 class="text-lg font-bold text-red-600 mb-3">❌ El problema que vives:</h3>
-                        <ul class="space-y-2 text-slate-600">
-                            <li>• Tu sueldo ya no alcanza para todo</li>
-                            <li>• Necesitas S/ 2,000-5,000 extra al mes</li>
-                            <li>• No tienes tiempo para otro trabajo</li>
-                            <li>• No tienes capital para invertir</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- La Solución -->
-                    <div class="benefit-card text-left">
-                        <h3 class="text-lg font-bold text-green-600 mb-3">✅ La solución: RENA WARE</h3>
-                        <ul class="space-y-2 text-slate-600">
-                            <li>• <strong>59 años</strong> en Perú, empresa sólida</li>
-                            <li>• <strong>Sin comprar</strong> productos</li>
-                            <li>• <strong>Sin entregas</strong> ni cobranzas</li>
-                            <li>• <strong>15%-27%</strong> de comisión por venta</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Productos -->
-    <section class="py-8 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-2xl md:text-3xl section-title text-center mb-6">
-                    💎 Productos que la gente SÍ necesita
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Filtro de Agua -->
-                    <div class="benefit-card">
-                        <h3 class="text-lg font-bold text-blue-600 mb-3">💧 Filtro de Agua AquaCheck</h3>
-                        <ul class="space-y-2 text-slate-600">
-                            <li>• <strong>Elimina 99.9%</strong> de bacterias, virus, plomo</li>
-                            <li>• <strong>Dura 8 años</strong> (22,700 litros)</li>
-                            <li>• <strong>Ahorra S/ 2,000+</strong> anuales vs agua embotellada</li>
-                            <li>• Cada familia peruana lo necesita</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Utensilios -->
-                    <div class="benefit-card">
-                        <h3 class="text-lg font-bold text-blue-600 mb-3">🍳 Utensilios Serie Zylstra</h3>
-                        <ul class="space-y-2 text-slate-600">
-                            <li>• <strong>Garantía vitalicia</strong> en todo el país</li>
-                            <li>• <strong>Cocina sin aceite</strong>, conserva nutrientes</li>
-                            <li>• <strong>Ahorra S/ 300-400</strong> mensuales</li>
-                            <li>• Historias familiares de 40+ años</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="value-box text-center mt-6">
-                    <h3 class="text-lg font-bold text-blue-800 mb-2">
-                        🎯 ¿Por qué se venden fácil?
-                    </h3>
-                    <p class="text-blue-700">
-                        <strong>No son lujos, son NECESIDADES.</strong> Cada familia necesita agua limpia y utensilios que duren.
-                        Los productos se pagan solos con el ahorro que generan.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lo que recibes por S/ 60 -->
-    <section class="py-8 bg-slate-100">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-2xl md:text-3xl section-title text-center mb-6">
-                    🎁 Todo lo que recibes por solo S/ 60
-                </h2>
-                
-                <div class="value-box">
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl section-title text-center mb-12">
+                        ⚡ Es como un negocio digital… pero MUCHO MEJOR
+                    </h2>
                     <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <h3 class="text-lg font-bold text-green-700 mb-4">📦 Tu paquete completo:</h3>
-                            <ul class="space-y-2 text-slate-700">
-                                <li class="flex items-start">
-                                    <span class="text-green-500 font-bold mr-2">✅</span>
-                                    <span><strong>15% - 27% comisión</strong> por cada venta</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-green-500 font-bold mr-2">✅</span>
-                                    <span><strong>Capacitación constante</strong> y entrenamientos por Zoom y presencial</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-green-500 font-bold mr-2">✅</span>
-                                    <span><strong>Soporte personalizado</strong> hasta que generes, al menos, S/ 5,000/mes</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-green-500 font-bold mr-2">✅</span>
-                                    <span><strong>Oficina virtual</strong> para operar a nivel nacional</span>
-                                </li>
+                        <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                            <h3 class="text-xl font-bold text-red-600 mb-4 text-center">❌ Negocio Digital Típico</h3>
+                            <ul class="space-y-3 text-slate-600">
+                                <li class="flex items-start"><span class="mr-2 text-red-500">👎</span> <span>Productos desconocidos</span></li>
+                                <li class="flex items-start"><span class="mr-2 text-red-500">👎</span> <span>Entregas de 20-45 días</span></li>
+                                <li class="flex items-start"><span class="mr-2 text-red-500">👎</span> <span>Calidad incierta</span></li>
+                                <li class="flex items-start"><span class="mr-2 text-red-500">👎</span> <span>Competencia feroz en precios</span></li>
+                                <li class="flex items-start"><span class="mr-2 text-red-500">👎</span> <span>Inversión constante en publicidad</span></li>
+                                <li class="flex items-start"><span class="mr-2 text-red-500">👎</span> <span>Estás solo contra el mundo</span></li>
                             </ul>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-green-700 mb-4">🚀 Más beneficios:</h3>
-                            <ul class="space-y-2 text-slate-700">
-                                <li class="flex items-start">
-                                    <span class="text-green-500 font-bold mr-2">✅</span>
-                                    <span><strong>Soporte administrativo</strong> (no debes hacer entregas ni cobranzas)</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-green-500 font-bold mr-2">✅</span>
-                                    <span><strong>Página web personal</strong> para ventas online a nivel nacional</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-green-500 font-bold mr-2">✅</span>
-                                    <span><strong>Kit de inicio completo</strong> con material de trabajo</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-green-500 font-bold mr-2">🎁</span>
-                                    <span><strong>6 bisturís de cocina</strong> (valorizados en S/ 480)</span>
-                                </li>
+                        <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                            <h3 class="text-xl font-bold text-green-600 mb-4 text-center">✅ Modelo Rena Ware</h3>
+                            <ul class="space-y-3 text-slate-600">
+                                <li class="flex items-start"><span class="mr-2 text-green-500">👍</span> <span>Productos premium reconocidos</span></li>
+                                <li class="flex items-start"><span class="mr-2 text-green-500">👍</span> <span>Entregas en 24-72 horas</span></li>
+                                <li class="flex items-start"><span class="mr-2 text-green-500">👍</span> <span>Calidad legendaria y garantías</span></li>
+                                <li class="flex items-start"><span class="mr-2 text-green-500">👍</span> <span>Demanda constante, sin guerra de precios</span></li>
+                                <li class="flex items-start"><span class="mr-2 text-green-500">👍</span> <span>Cero inversión en marketing</span></li>
+                                <li class="flex items-start"><span class="mr-2 text-green-500">👍</span> <span>Respaldo de empresa con 59 años</span></li>
                             </ul>
                         </div>
                     </div>
-                    
-                    <div class="bg-green-100 border border-green-400 rounded-lg p-4 mt-6 text-center">
-                        <div class="grid md:grid-cols-3 gap-4 mb-3">
-                            <div>
-                                <div class="text-base font-bold text-green-800">💰 Valor Total</div>
-                                <div class="text-xl font-black text-green-600">S/ 12,000+</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl section-title mb-4">
+                            Un Modelo Simple Diseñado para Ti
+                        </h2>
+                        <p class="text-slate-600 max-w-3xl mx-auto text-lg"> La diferencia de Rena Ware es que tú te enfocas en lo simple y la empresa en lo complejo. Así funciona:</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="benefit-card text-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-3xl text-blue-600">🎓</span>
                             </div>
-                            <div>
-                                <div class="text-base font-bold text-green-800">🎯 Pagas Solo</div>
-                                <div class="text-xl font-black text-green-600">S/ 60</div>
+                            <h3 class="font-bold text-lg text-blue-900 mb-3">1. Recibes Capacitación</h3>
+                            <p class="text-slate-600 text-sm">Te guiamos paso a paso, desde el conocimiento del producto hasta tus primeras presentaciones. No necesitas ser un experto.</p>
+                        </div>
+                        <div class="benefit-card text-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-3xl text-blue-600">💬</span>
                             </div>
-                            <div>
-                                <div class="text-base font-bold text-green-800">⚡ ROI Potencial</div>
-                                <div class="text-xl font-black text-green-600">4,113%</div>
+                            <h3 class="font-bold text-lg text-blue-900 mb-3">2. Das a conocer y Asesoras</h3>
+                            <p class="text-slate-600 text-sm">Tu rol es simple: compartir los beneficios de los productos con personas en tu entorno. Se trata de ayudar.</p>
+                        </div>
+                        <div class="bg-blue-50 border-2 border-blue-300 p-4 rounded-lg text-center shadow-lg benefit-card">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-3xl text-blue-600">🚚</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-blue-900 mb-3">3. Rena Ware se encarga del resto</h3>
+                            <ul class="text-left text-sm text-blue-700 space-y-1 px-2">
+                                <li><span class="font-bold text-red-500 mr-1">❌</span> Cero inventario</li>
+                                <li><span class="font-bold text-red-500 mr-1">❌</span> Cero cobranzas</li>
+                                <li><span class="font-bold text-red-500 mr-1">❌</span> Cero entregas</li>
+                            </ul>
+                            <p class="text-slate-600 text-sm mt-3 font-semibold">¡La compañía hace todo el trabajo pesado por ti!</p>
+                        </div>
+                        <div class="benefit-card text-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-3xl text-blue-600">💰</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-blue-900 mb-3">4. Ganas Dinero Semanalmente</h3>
+                            <p class="text-slate-600 text-sm">Recibes tus ganancias en tu cuenta CADA SEMANA. Sin demoras ni complicaciones. ¡Tu esfuerzo se recompensa puntualmente!</p>
+                        </div>
+                    </div>
+                    <div class="mt-12 bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
+                        <h3 class="font-bold text-lg text-green-800 mb-2">🎯 En Resumen: Tu Único Enfoque es Asesorar al Cliente</h3>
+                        <p class="text-green-700">Tú pones las ganas y la relación con las personas. Rena Ware se encarga de TODA la operación: logística, envíos, financiamiento y cobranza. Es un modelo de negocio diseñado para que tú ganes sin las complicaciones de un negocio tradicional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+   <section class="py-12 bg-slate-50">
+    <div class="container mx-auto px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl section-title text-center mb-4">
+                💎 Productos Premium que se Venden Solos
+            </h2>
+            <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto">
+        Un modelo simple necesita herramientas potentes. Aquí no tienes que "vender" a la fuerza, porque cuentas con productos que las familias ya quieren y necesitan.
+.
+            </p>
+
+            <div class="swiper product-slider">
+                <div class="swiper-wrapper pb-12">
+
+<div class="swiper-slide">
+                        <div class="product-card">
+                            <img src="https://pu.renakit.com/drive/files/Redes%20Sociales/2.%20Biblioteca/2.%20Fotos%20para%20publicaciones/Aqua%20Nano%20HD/Aqua%20Nano%20CTU(2).png" alt="Filtro de Agua Rena Ware" class="product-image">
+                            <div class="product-info">
+                                <h3 class="product-title">💧 Filtro Aqua ✓ HD Nano</h3>
+                                <ul class="product-features">
+                                    <li>Agua pura y segura al instante, libre de virus y bacterias.</li>
+                                    <li>Ahorro familiar de +S/2,000 al año en agua embotellada.</li>
+                                    <li>Tecnología de ultrafiltración de última generación.</li>
+                                </ul>
+                                <div class="payment-info">
+                                    <span>💳 Precio al contado desde S/3,777</span>
+                                    <span>💰 Financiamiento en cuotas de solo S/ 337.</span>
+                                </div>
+                                <div class="commission-box">
+                                    Tu Ganancia por Venta desde: S/ 617</span>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-green-800 font-bold">
-                            Con solo 1 venta recuperas <strong>10 veces</strong> tu inversión
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <img src="https://pu.renakit.com/drive/files/Redes%20Sociales/2.%20Biblioteca/2.%20Fotos%20para%20publicaciones/Botella%20Filtrante%20Rena%20Ware/Botella%20Filtrante%20Rena%20Ware%20(2)(2).png" alt="Botella Filtrante Rena Ware" class="product-image">
+                            <div class="product-info">
+                                <h3 class="product-title">🏃‍♀️ Botella Filtrante</h3>
+                                <ul class="product-features">
+                                    <li>Agua pura donde vayas: gimnasio, oficina o viajes.</li>
+                                    <li>Reemplaza 3,200 botellas de plástico, ahorra dinero y cuida el medio ambiente.</li>
+                                    <li>Hecho de Tritán, resistente a las caidas y libre de toxinas.</li>
+                                </ul>
+                                <div class="payment-info">
+                                    <span>💳 Precio al contado desde S/ 413.</span>
+                                    <span>👍 Un producto accesible y de alta rotación.</span>
+                                </div>
+                                <div class="commission-box">
+                                    Tu Ganancia por Venta desde: S/ 54</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                        <img src="https://pu.renakit.com/drive/files/Redes%20Sociales/2.%20Biblioteca/3.%20Fotos%20de%20productos/Otros/Nutrex%20Press.png" alt="Extractor Nutrex" class="product-image-nutrex" style="max-width: 84%; height: auto; margin: 0 auto; display: block;">
+                            <div class="product-info">
+                                <h3 class="product-title">🍹 Extractor de Jugos</h3>
+                                <ul class="product-features">
+                                    <li>Tecnología de prensado en frío que no destruye nutrientes.</li>
+                                    <li>Prepara jugos, helados y leches vegetales.</li>
+                                    <li>Práctico de armar, silencioso y muy fácil de limpiar.</li>
+                                </ul>
+                                <div class="payment-info">
+                                    <span>💳 Precio al contado desde S/ 2,648</span>
+                                    <span>💰 Financiamiento en cuotas de solo S/ 242</span>
+                                </div>
+                                <div class="commission-box">
+                                    Tu Ganancia por Venta desde: S/ 518</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <img src="https://pu.renakit.com/drive/files/Redes%20Sociales/2.%20Biblioteca/2.%20Fotos%20para%20publicaciones/Serie%20Zylstra/Serie%20Zylstra%20(2)(6).png" alt="Utensilios de Cocina Rena Ware" class="product-image">
+                            <div class="product-info">
+                                <h3 class="product-title">🍳 Utensilios Serie Zylstra</h3>
+                                <ul class="product-features">
+                                    <li>Cocina más sano, sin necesidad de usar aceite.</li>
+                                    <li>Garantía vitalicia. ¡Una inversión para toda la vida!</li>
+                                    <li>Ahorro real de S/ 400 al mes en aceite, gas, energía, tiempo y salud.</li>
+                                </ul>
+                                <div class="payment-info">
+                                    <span>💳 Precio al contado desde S/ 3,309</span>
+                                    <span>💰 Financiamiento en cuotas de solo S/ 298</span>
+                                </div>
+                                <div class="commission-box">
+                                    Tu Ganancia por Venta desde: S/ 672</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <img src="https://pu.renakit.com/drive/files/Redes%20Sociales/2.%20Biblioteca/2.%20Fotos%20para%20publicaciones/Cocina%20de%20Inducci%C3%B3n%20IC-450/Cocina%20de%20Inducci%C3%B3n%20(3).jpg" alt="Cocina de Inducción" class="product-image">
+                            <div class="product-info">
+                                <h3 class="product-title">⚡ Cocina de Inducción</h3>
+                                <ul class="product-features">
+                                    <li>Cocina más rápido, de forma más segura y eficiente.</li>
+                                    <li>Ahorra hasta 70% de energía en comparación al gas.</li>
+                                    <li>Diseño portátil, ideal para cualquier espacio.</li>
+                                </ul>
+                                <div class="payment-info">
+                                    <span>💳 Precio al contado desde S/ 1,907</span>
+                                    <span>💰 Financiamiento en cuotas de solo S/ 180</span>
+                                </div>
+                                <div class="commission-box">
+                                    Tu Ganancia por Venta desde: S/ 320</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <img src="https://pu.renakit.com/drive/files/Redes%20Sociales/2.%20Biblioteca/2.%20Fotos%20para%20publicaciones/Olla%20a%20presi%C3%B3n%208%20L/Olla%20a%20Presi%C3%B3n%208L.jpg" alt="Olla a Presión" class="product-image">
+                            <div class="product-info">
+                                <h3 class="product-title">⏱️ Olla a Presión</h3>
+                                <ul class="product-features">
+                                    <li>Ahorra hasta un 70% de tiempo al cocinar de manera segura.</li>
+                                    <li>Múltiples válvulas para máxima seguridad en tu cocina.</li>
+                                    <li>Conserva mejor el sabor y los nutrientes de los alimentos.</li>
+                                </ul>
+                                <div class="payment-info">
+                                    <span>💳 Precio al contado desde S/ 2,744</span>
+                                    <span>💰 Financiamiento en cuotas de solo S/ 251</span>
+                                </div>
+                                <div class="commission-box">
+                                    Tu Ganancia por Venta desde: S/ 364</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <img src="https://pu.renakit.com/drive/files/Redes%20Sociales/2.%20Biblioteca/2.%20Fotos%20para%20publicaciones/Cubiertos%20%C3%89lite/Cubiertos%20Elite.jpg" alt="Juego de Cubiertos" class="product-image">
+                            <div class="product-info">
+                                <h3 class="product-title">🍴 Juego de Cubiertos</h3>
+                                <ul class="product-features">
+                                    <li>Acero inoxidable de grado quirúrgico, no se manchan.</li>
+                                    <li>Diseño clásico y durable para toda la vida, de generación en generación.</li>
+                                    <li>Ideal para el uso diario y ocasiones especiales.</li>
+                                </ul>
+                                <div class="payment-info">
+                                    <span>💳 Precio al contado desde S/ 1,487</span>
+                                    <span>💰 Financiamiento en cuotas de solo S/ 145</span>
+                                </div>
+                                <div class="commission-box">
+                                    Tu Ganancia por Venta desde: S/ 198</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <img src="https://pu.renakit.com/drive/files/Redes%20Sociales/2.%20Biblioteca/2.%20Fotos%20para%20publicaciones/Mini%20Sart%C3%A9n/Mini%20Sart%C3%A9n.png" alt="Mini Sartén con Tapa" class="product-image">
+                            <div class="product-info">
+                                <h3 class="product-title">🍳 Mini Sartén con Tapa (18 cm)</h3>
+                                <ul class="product-features">
+                                    <li>Perfecta para porciones individuale: huevos, tortillas.</li>
+                                    <li>Misma calidad Nutri-Plex™ en un tamaño práctico.</li>
+                                    <li>Ideal para ahorrar espacio y cocinar más rápido.</li>
+                                </ul>
+                                <div class="payment-info">
+                                    <span>💳 Precio al contado desde S/ 488</span>
+                                    <span>👍 El complemento perfecto para tu cocina.</span>
+                                </div>
+                                <div class="commission-box">
+                                    Tu Ganancia por Venta desde: S/ 64</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <img src="https://pu.renakit.com/drive/files/Redes%20Sociales/2.%20Biblioteca/2.%20Fotos%20para%20publicaciones/AeroQuattro+%20UV/Aero%20Quattro+%20UV.jpg" alt="Purificador de Aire" class="product-image">
+                            <div class="product-info">
+                                <h3 class="product-title">🌬️ Purificador de Aire</h3>
+                                <ul class="product-features">
+                                    <li>Hogar más sano, ideal para personas con alergias o asma.</li>
+                                    <li>Elimina 99.5% de polvo, polen, ácaros y virus del aire.</li>
+                                    <li>Respira aire más puro y mejora tu calidad de vida.</li>
+                                </ul>
+                                <div class="payment-info">
+                                    <span>💳 Precio al contado desde S/ 2,389</span>
+                                    <span>💰 Financiamiento en cuotas de solo S/ 221.</span>
+                                </div>
+                                <div class="commission-box">
+                                    Tu Ganancia por Venta desde: S/ 318</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <style>
+            .product-card {
+                background-color: #ffffff;
+                border-radius: 0.75rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                border: 1px solid #e5e7eb;
+            }
+            .product-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+            .product-image-nutrex {
+                width: 84% !important;
+                max-width: 84% !important;
+                height: 200px !important;
+                margin: 0 auto !important;
+                display: block !important;
+                object-fit: contain !important;
+                padding: 10px;
+            }
+            .product-info {
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+            }
+            .product-title {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #1e3a8a;
+                margin-bottom: 0.5rem;
+            }
+            .product-features {
+                list-style-type: '✓ ';
+                padding-left: 1rem;
+                font-size: 0.85rem;
+                color: #4b5563;
+                flex-grow: 1;
+                margin-bottom: 0.75rem;
+            }
+            .product-features li {
+                margin-bottom: 0.25rem;
+            }
+            .payment-info {
+                font-size: 0.75rem;
+                border-radius: 0.25rem;
+                padding: 0.5rem;
+                margin-bottom: 0.75rem;
+                background-color: #f0fdf4;
+                border: 1px solid #bbf7d0;
+                color: #166534;
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            .commission-box {
+                padding: 0.75rem;
+                border-radius: 0.5rem; /* rounded-md */
+                font-size: 0.9rem;
+                background-color: #1e293b; /* slate-800 */
+                color: white;
+                text-align: center;
+                font-weight: 500;
+                margin-top: auto;
+            }
+            .swiper-button-next, .swiper-button-prev { color: #1a2c6c !important; }
+            .swiper-pagination-bullet-active { background: #f59e0b !important; }
+        </style>
+        
+        <section class="py-16 md:py-24 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                    <div class="grid md:grid-cols-3 gap-8 items-center">
+                        <div class="md:col-span-1 text-center">
+                            <div class="phone-mockup mx-auto">
+                                <div class="phone-screen">
+                                    <iframe src="https://player.vimeo.com/video/1112759536?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Mi Historia - Nelson Portugal">
+                                    </iframe>
+                                </div>
+                            </div>
+                            <p class="mt-4 text-slate-600 italic text-sm">
+                                ▶️ Haz clic para conocerme
+                            </p>
+                            <h3 class="text-xl font-bold text-blue-900 mt-4">Nelson Portugal</h3>
+                            <p class="text-slate-500">Tu Mentor en Rena Ware</p>
+                        </div>
+                        <div class="md:col-span-2">
+                            <h2 class="text-2xl md:text-3xl font-black text-blue-900 mb-4">
+                                Cómo generé S/ 4,000 al mes sin saber vender
+                            </h2>
+                            <p class="text-slate-600 mb-4">
+                                A los 20 años, mientras estudiaba Administración en la <strong>UPC</strong>, me encontré con la misma necesidad que probablemente tienes tú: generar ingresos extra. Para serte honesto, <strong>yo era tímido y no tenía idea de cómo vender.</strong>
+                            </p>
+                            <p class="text-slate-600 mb-4">
+                                Aun así, decidí unirme a Rena Ware. Para mi sorpresa, empecé a generar <strong>S/ 4,000 extra cada mes.</strong> Esa experiencia no solo me dio independencia, sino que despertó mi pasión por el desarrollo de habilidades.
+                            </p>
+                             <p class="text-slate-600 mb-4">
+                                Desde entonces, he dedicado mi carrera a ello, como <strong>profesor universitario</strong>, conferencista y consultor para empresas como <strong>Cosapi y Huawei</strong>, he sido invitado a dictar clases en <strong>Centrum PUCP</strong> y complementé mi formación en <strong>Harvard Business School</strong>.
+                            </p>
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                <p class="font-bold text-green-800">
+                                    He usado toda esa experiencia para ayudar a docenas de personas, que empezaron igual que tú, a generar ingresos constantes entre S/ 5,000 y S/ 15,000 al mes. Mi compromiso es darte el mismo sistema para que tú seas el próximo caso de éxito.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-4">
+                            🤔 "Pero yo tengo dudas..."
+                        </h2>
+                        <p class="text-lg text-slate-700 max-w-3xl mx-auto">
+                            Es normal. <span class="font-bold">Todos</span> tuvieron las mismas dudas. Aquí están las respuestas <span class="font-bold">honestas</span> a lo que realmente te preocupa:
+                        </p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6 mb-10">
+                        <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-blue-400 hover:shadow-xl transition-shadow">
+                            <div class="text-center mb-4">
+                                <div class="text-3xl mb-2 text-blue-600">😰</div>
+                                <h3 class="text-xl font-bold text-blue-800 mb-3">"No sé vender"</h3>
+                            </div>
+                            <div class="bg-blue-50 rounded-lg p-4 mb-4">
+                                <p class="font-bold text-blue-800 mb-2">✅ Mi respuesta:</p>
+                                <p class="text-blue-700 text-sm"><strong>Yo hago tus primeras 3-5 presentaciones CONTIGO.</strong> Solo observas y aprendes. Luego te acompaño hasta que te sientas seguro.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-blue-400 hover:shadow-xl transition-shadow">
+                            <div class="text-center mb-4">
+                                <div class="text-3xl mb-2 text-blue-600">⏰</div>
+                                <h3 class="text-xl font-bold text-blue-800 mb-3">"No tengo tiempo"</h3>
+                            </div>
+                            <div class="bg-blue-50 rounded-lg p-4 mb-4">
+                                <p class="font-bold text-blue-800 mb-2">✅ Mi respuesta:</p>
+                                <p class="text-blue-700 text-sm"><strong>Solo necesitas 5-8 horas/semana</strong> en tus tiempos libres. Fines de semana, noches, cuando puedas. Se adapta a ti.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-blue-400 hover:shadow-xl transition-shadow">
+                            <div class="text-center mb-4">
+                                <div class="text-3xl mb-2 text-blue-600">🤷‍♂️</div>
+                                <h3 class="text-xl font-bold text-blue-800 mb-3">"¿Y si no funciona?"</h3>
+                            </div>
+                            <div class="bg-blue-50 rounded-lg p-4 mb-4">
+                                <p class="font-bold text-blue-800 mb-2">✅ Mi respuesta:</p>
+                                <p class="text-blue-700 text-sm">Ha funcionado <strong>59 años</strong> en Perú y lo único que arriesgas son S/ 60, que recuperas con creces con el regalo que recibes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl p-8 text-center">
+                        <h3 class="text-2xl font-bold mb-4">🎯 La pregunta real es...</h3>
+                        <p class="text-lg mb-6">
+                            ¿Qué es más arriesgado: <strong>intentar algo nuevo por S/ 60</strong> o <strong>quedarte igual esperando que tu situación mejore sola?</strong>
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Ejemplo de ganancias -->
-    <section class="py-8 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-2xl md:text-3xl section-title mb-6">
-                    💰 ¿Cuánto puedes ganar?
-                </h2>
-                
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="benefit-card text-center">
-                        <div class="text-2xl mb-3">🥉</div>
-                        <h3 class="text-lg font-bold text-slate-800 mb-2">Nivel Inicial</h3>
-                        <div class="text-xl font-black text-green-600 mb-2">S/ 617</div>
-                        <div class="text-sm text-slate-600 mb-3">Por venta (40 min)</div>
-                        <p class="text-slate-600">1 venta/semana = <strong>S/ 2,468/mes</strong></p>
+        <section class="py-16 md:py-24 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl section-title mb-12">
+                        💰 ¿Cuánto puedes ganar? Veámos un ejemplo real
+                    </h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="benefit-card text-center">
+                            <div class="text-3xl mb-3 text-blue-600">🥉</div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">Nivel Inicial</h3>
+                                <div class="text-3xl font-black text-blue-600 mb-2">S/ 2,468/mes</div>
+                            <p class="text-slate-600">Con solo 1 venta del Filtro de Agua por semana.</p>
+                        </div>
+                        <div class="benefit-card text-center bg-blue-50 border-blue-300 ring-4 ring-blue-300">
+                            <div class="text-3xl mb-3 text-blue-600">🥈</div>
+                            <h3 class="text-lg font-bold text-blue-800 mb-2">Con Equipo</h3>
+                            <div class="text-3xl font-black text-blue-600 mb-2">S/ 4,936/mes</div>
+                            <p class="text-blue-700">Tú + 3 personas haciendo lo mismo que tú. Liderazgo = Doble ingreso.</p>
+                        </div>
+                        <div class="benefit-card text-center">
+                            <div class="text-3xl mb-3 text-blue-600">🥇</div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">Avanzado</h3>
+                            <div class="text-3xl font-black text-blue-600 mb-2">S/ 7,404+/mes</div>
+                            <p class="text-slate-600">Con un equipo más grande, generas ingresos residuales.</p>
+                        </div>
                     </div>
-                    
-                    <div class="benefit-card text-center bg-amber-50 border-amber-300">
-                        <div class="text-2xl mb-3">🥈</div>
-                        <h3 class="text-lg font-bold text-amber-800 mb-2">Con Equipo</h3>
-                        <div class="text-xl font-black text-amber-600 mb-2">S/ 4,936</div>
-                        <div class="text-sm text-amber-700 mb-3">Tú + 3 personas</div>
-                        <p class="text-amber-700">Liderazgo = <strong>Doble ingreso</strong></p>
+                    <div class="value-box mt-12 text-center">
+                        <h3 class="text-xl font-bold text-blue-800 mb-2">
+                            ⭐ Lo que hace único este plan:
+                        </h3>
+                        <p class="text-blue-700">
+                            <strong>59 años pagando TODAS las semanas</strong> sin excepción. Lo que ganas es 100% tuyo, no necesitas reinvertir nada.
+                        </p>
                     </div>
-                    
-                    <div class="benefit-card text-center">
-                        <div class="text-2xl mb-3">🥇</div>
-                        <h3 class="text-lg font-bold text-slate-800 mb-2">Avanzado</h3>
-                        <div class="text-xl font-black text-green-600 mb-2">S/ 7,404+</div>
-                        <div class="text-sm text-slate-600 mb-3">Equipo grande</div>
-                        <p class="text-slate-600">Ingresos <strong>residuales</strong></p>
-                    </div>
-                </div>
-                
-                <div class="value-box mt-6">
-                    <h3 class="text-lg font-bold text-blue-800 mb-2">
-                        ⭐ Lo que hace único este plan:
-                    </h3>
-                    <p class="text-blue-700">
-                        <strong>59 años pagando TODAS las semanas</strong> sin excepción. 
-                        Lo que ganas es 100% tuyo, no necesitas reinvertir nada.
-                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Final -->
-    <section class="py-12 md:py-16 bg-slate-100">
-        <div class="container mx-auto px-6">
-            <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl section-title mb-4">
-                    🚀 ¿Listo para empezar?
-                </h2>
-                
-                <p class="text-slate-600 text-lg mb-6">
-                    <span class="font-bold text-green-600">3,847 peruanos</span> ya generan ingresos extra con Rena Ware. 
-                    <span class="font-bold text-green-600">Solo falta que tú decidas dar el paso.</span>
-                </p>
-                
-                <!-- Mini manejo de objeciones -->
-                <div class="grid md:grid-cols-3 gap-4 mb-6">
-                    <div class="benefit-card text-center">
-                        <div class="text-lg font-bold text-red-500 mb-2">❌ "No sé vender"</div>
-                        <div class="text-sm text-slate-600">Yo hago tus primeras presentaciones contigo</div>
-                    </div>
-                    <div class="benefit-card text-center">
-                        <div class="text-lg font-bold text-red-500 mb-2">❌ "No tengo tiempo"</div>
-                        <div class="text-sm text-slate-600">Solo 5-8 horas/semana en tus tiempos libres</div>
-                    </div>
-                    <div class="benefit-card text-center">
-                        <div class="text-lg font-bold text-red-500 mb-2">❌ "¿Y si no funciona?"</div>
-                        <div class="text-sm text-slate-600">Lo peor que puede pasar es que desarrolles nuevas habilidades</div>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg mb-8 max-w-xl mx-auto border-l-4 border-amber-500">
-                    <h3 class="font-bold text-xl text-blue-900 mb-3">🎯 Proceso super fácil (2 minutos):</h3>
-                    <ul class="text-left space-y-2 text-slate-700">
-                        <li class="flex items-start">
-                            <span class="text-green-500 font-bold mr-2">1️⃣</span>
-                            <strong>CLIC EN BOTÓN:</strong> Mensaje pre-escrito listo
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 font-bold mr-2">2️⃣</span>
-                            <strong>YAPE/TRANSFERENCIA:</strong> S/ 60 en 30 segundos
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 font-bold mr-2">3️⃣</span>
-                            <strong>RECIBE TODO:</strong> Kit + bisturís + accesos
-                        </li>
-                    </ul>
-                </div>
-                
-                <a href="https://wa.me/51994607605?text=🚀%20¡Hola%20Nelson!%20Quiero%20empezar%20con%20Rena%20Ware.%20%0A%0A✅%20Entiendo%20que%20son%20S/%2060%20para%20empezar%0A✅%20Quiero%20generar%20S/%202,000-5,000%20extra%20al%20mes%0A✅%20Necesito%20los%20datos%20para%20Yape/transferencia%0A%0A¿Cuándo%20puedo%20recibir%20mi%20kit%20y%20empezar?" 
-                   target="_blank" 
-                   class="bg-amber-500 text-white font-bold py-4 px-12 rounded-lg shadow-xl text-xl cta-button inline-block relative mb-4">
-                    💬 ¡SÍ, QUIERO EMPEZAR CON S/ 60!
-                </a>
-                
-                <p class="text-sm text-slate-500 mb-4">
-                    📱 Mensaje pre-escrito listo - Solo haz clic y envía
-                </p>
-                
-                <div class="bg-green-50 border border-green-200 rounded-lg p-4">
-                    <p class="text-green-700">
-                        <strong>🛡️ GARANTÍA TOTAL:</strong>Recibirás soporte personalizado hasta que generes, al menos, S/ 5,000 al mes.</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <div class="grid md:grid-cols-3 gap-6 mb-6">
-                <div>
-                    <h3 class="text-lg font-bold mb-2">📞 Contacto</h3>
-                    <p class="text-slate-300">WhatsApp: +51 994 607 605</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-2">🏢 Rena Ware Perú</h3>
-                    <p class="text-slate-300">59 años en el país</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-2">⏰ Disponibilidad</h3>
-                    <p class="text-slate-300">WhatsApp 24/7</p>
-                </div>
-            </div>
+<section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center">
             
-            <div class="border-t border-blue-800 pt-6">
+            <h2 class="text-3xl md:text-4xl font-black text-blue-800 mb-4">
+                💡 Un Secreto Adicional que Asegura tu Éxito...
+            </h2>
+            <p class="text-slate-600 text-lg max-w-3xl mx-auto mb-8">
+                Además de los nuevos clientes, existe una oportunidad gigante que muchos no ven.
+            </p>
+
+            <div class="bg-slate-800 p-8 rounded-2xl shadow-2xl overflow-hidden">
+                <div class="grid md:grid-cols-5 gap-8 items-center">
+
+            <div class="md:col-span-2">
+                <div class="relative h-64 md:h-full min-h-[250px] flex items-center justify-center">
+                    
+                    <div class="absolute flex items-center gap-x-2" style="top: 40%; left: 30%;">
+                        <span class="map-pin" style="animation-delay: 0s;"></span>
+                        <span class="text-slate-100 font-bold text-lg">Lima</span>
+                    </div>
+                    
+                    <div class="absolute flex items-center gap-x-2" style="top: 75%; left: 55%;">
+                        <span class="map-pin" style="animation-delay: 0.2s;"></span>
+                        <span class="text-slate-300 font-semibold text-base">Arequipa</span>
+                    </div>
+                    
+                    <div class="absolute flex items-center gap-x-2 opacity-90" style="top: 10%; left: 50%;">
+                        <span class="map-pin" style="animation-delay: 0.4s;"></span>
+                        <span class="text-slate-400 font-medium text-base">Trujillo</span>
+                    </div>
+                    
+                    <div class="absolute flex items-center gap-x-2 opacity-80" style="top: 60%; left: 10%;">
+                        <span class="map-pin" style="animation-delay: 0.6s;"></span>
+                        <span class="text-slate-400 font-medium">Cusco</span>
+                    </div>
+            
+                    <div class="absolute flex items-center gap-x-2 opacity-70" style="top: 25%; left: 5%;">
+                        <span class="map-pin" style="animation-delay: 0.8s;"></span>
+                        <span class="text-slate-500 text-sm">Iquitos</span>
+                    </div>
+            
+                    <div class="absolute flex items-center gap-x-2 opacity-90" style="top: 5%; left: 15%;">
+                        <span class="map-pin" style="animation-delay: 1s;"></span>
+                        <span class="text-slate-400 font-medium">Piura</span>
+                    </div>
+            
+                     <div class="absolute flex items-center gap-x-2" style="top: 85%; left: 20%;">
+                        <span class="map-pin" style="animation-delay: 1.2s;"></span>
+                        <span class="text-slate-300 font-semibold">Huancayo</span>
+                    </div>
+                    
+                    <div class="absolute flex items-center gap-x-2 opacity-80" style="top: 20%; left: 65%;">
+                        <span class="map-pin" style="animation-delay: 0.3s;"></span>
+                        <span class="text-slate-400 font-medium">Chiclayo</span>
+                    </div>
+            
+                    <div class="absolute flex items-center gap-x-2 opacity-90" style="top: 65%; left: 75%;">
+                        <span class="map-pin" style="animation-delay: 0.5s;"></span>
+                        <span class="text-slate-300 font-semibold">Ica</span>
+                    </div>
+            
+                    <div class="absolute flex items-center gap-x-2 opacity-70" style="top: 90%; left: 60%;">
+                        <span class="map-pin" style="animation-delay: 0.7s;"></span>
+                        <span class="text-slate-500 text-sm">Puno</span>
+                    </div>
+            
+                    <div class="absolute flex items-center gap-x-2 opacity-80" style="top: 95%; left: 35%;">
+                        <span class="map-pin" style="animation-delay: 0.9s;"></span>
+                        <span class="text-slate-400 font-medium text-sm">Tacna</span>
+                    </div>
+                    
+                    <div class="absolute flex items-center gap-x-2 opacity-75" style="top: 45%; left: 70%;">
+                        <span class="map-pin" style="animation-delay: 1.1s;"></span>
+                        <span class="text-slate-400 font-medium text-sm">Cajamarca</span>
+                    </div>
+            
+                </div>
+            </div>
+
+                    <div class="md:col-span-3 text-center md:text-left">
+                        <h3 class="text-3xl lg:text-4xl font-extrabold text-white mb-4">
+                            Ya hay más de 2 MILLONES de clientes en Perú.
+                        </h3>
+                        <p class="text-slate-300 text-lg">
+                            Esto no es solo una cifra. Es un <strong>mercado existente y leal</strong> que necesita activamente repuestos y novedades. Tienes una oportunidad increíble de servir a una base de clientes ya establecida, ¡es como empezar un negocio con clientes esperando en la puerta!
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .map-pin {
+            /* Mantenemos el pin animado */
+            position: relative; /* Cambiado de absolute para que fluya con el texto */
+            flex-shrink: 0; /* Evita que el pin se encoja */
+            width: 12px;
+            height: 12px;
+            background-color: #f59e0b; /* amber-500 */
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 0 rgba(245, 158, 11, 1);
+            animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+
+        @keyframes pulse {
+            to {
+                box-shadow: 0 0 0 25px rgba(245, 158, 11, 0);
+            }
+        }
+    </style>
+</section>
+
+        <section class="py-16 md:py-24 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl md:text-4xl section-title mb-4">
+                            🎁 Todo lo que recibes por una única inversión de S/ 60
+                        </h2>
+                        <p class="text-slate-600 text-lg">
+                        <span class="font-bold text-blue-600">Solo falta que tú decidas dar el paso.</span>
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 mb-8">
+                        <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                            <div>
+                            <h3 class="text-lg font-bold text-blue-800 mb-4">📦 Tu Paquete de Éxito:</h3>
+                                <ul class="space-y-3 text-slate-700">
+                                    <li class="flex items-start"><span class="text-green-500 font-bold mr-2 mt-1">✓</span><span><strong>Gana del 15% al 27% en comisiones</strong> por cada venta.</span></li>
+                                    <li class="flex items-start"><span class="text-green-500 font-bold mr-2 mt-1">✓</span><span><strong>Oportunidad de crear tu equipo</strong> y ganar hasta un 9% adicional.</span></li>
+                                    <li class="flex items-start"><span class="text-green-500 font-bold mr-2 mt-1">✓</span><span><strong>Acompañamiento 1 a 1</strong> para que generes al menos S/ 5,000 al mes.</span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-blue-800 mb-4">🚀 Más Beneficios Clave:</h3>
+                                <ul class="space-y-3 text-slate-700">
+                                    <li class="flex items-start"><span class="text-green-500 font-bold mr-2 mt-1">✓</span><span><strong>Soporte total en logística y cobranza</strong> (no te preocupas de eso).</span></li>
+                                    <li class="flex items-start"><span class="text-green-500 font-bold mr-2 mt-1">✓</span><span><strong>Tu propia tienda online personalizada</strong> para vender 24/7.</span></li>
+                                    <li class="flex items-start"><span class="text-green-500 font-bold mr-2 mt-1">✓</span><span><strong>Kit de inicio completo</strong> con catálogos y herramientas.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                         <div class="mt-6 pt-6 border-t border-slate-200">
+                             <div class="flex items-start font-bold text-blue-800">
+                                 <span class="text-green-500 text-2xl mr-2">🎁</span>
+                                 <span>DE REGALO: Set de 6 cuchillos de precisión (tipo bisturí), <span class="underline">valorizados en S/ 480</span>.</span>
+                             </div>
+                         </div>
+                    </div>
+                    <div class="text-center mb-8">
+                        <a href="https://wa.me/51994607605?text=🚀%20¡Hola!%20Quiero%20empezar%20con%20Rena%20Ware.%20%0A%0A✅%20Entiendo%20que%20la%20inversión%20única%20es%20de%20S/%2060.%0A✅%20Mi%20meta%20es%20generar%20S/%202,000-5,000%20extra%20al%20mes.%0A✅%20Necesito%20los%20datos%20para%20Yape/transferencia.%0A%0A¿Cuándo%20puedo%20empezar?" target="_blank" class="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-4 px-12 rounded-lg shadow-xl text-xl cta-button inline-block relative mb-4 transform hover:scale-105 transition-transform duration-300">
+                            💬 ¡SÍ, QUIERO EMPEZAR CON SOLO S/ 60!
+                        </a>
+                        <p class="text-sm text-slate-500 mb-4">
+                            📱 Mensaje pre-escrito listo - Solo haz clic y envía
+                        </p>
+                    </div>
+                    <div class="bg-green-100 border-2 border-green-300 rounded-lg p-4 max-w-3xl mx-auto">
+                         <div class="flex items-center justify-center font-bold text-green-800">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <h4>Tu Inversión está 100% Segura y Cubierta</h4>
+                        </div>
+                        <p class="text-green-700 text-center text-sm mt-2">
+                            Solo el set de cuchillos que recibes como regalo está valorizado en S/ 480. Inicias tu negocio sin ningún riesgo y con un producto de alto valor en tus manos desde el momento cero.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-slate-800 text-white py-8">
+            <div class="container mx-auto px-6 text-center">
                 <p class="text-slate-300 mb-2">&copy; 2025 Nelson Portugal. Todos los derechos reservados.</p>
                 <p class="text-xs text-slate-400">
                     Portugal Research International S.A.C. - Asesor independiente de Rena Ware del Perú S.A.
                 </p>
             </div>
-        </div>
-    </footer>
-</main>
+        </footer>
+    </main>
 
-<!-- Botón flotante -->
-<div id="floatingCTA" class="fixed bottom-6 right-6 z-50" style="display: none;">
-    <a href="https://wa.me/51994607605?text=💬%20¡Nelson!%20Me%20interesa%20Rena%20Ware..."
-        target="_blank"
-        class="bg-amber-500 text-white font-bold py-3 px-6 rounded-full shadow-xl text-base cta-button inline-block">
-        💬 ¡ESCRÍBEME!
+<div id="floatingCTA" class="fixed bottom-6 right-6 z-50">
+    <a href="https://wa.me/51994607605?text=¡Hola%20Nelson!%20Vi%20la%20página%20y%20quiero%20unirme%20ahora%20a%20Rena%20Ware." 
+       target="_blank" 
+       class="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-3 px-6 rounded-full shadow-xl text-base cta-button inline-flex items-center gap-2">
+        <span>¡Quiero unirme ahora!</span>
+        <span class="text-xl">🚀</span>
     </a>
 </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+    // Script Urgencia Cupos
+    document.addEventListener('DOMContentLoaded', () => {
+        const spotsLeftEl = document.getElementById('spots-left');
+        const spotsBarEl = document.getElementById('spots-bar');
+        let spotsLeft = 7;
+        const totalSpots = 10;
 
-<script src="https://player.vimeo.com/api/player.js"></script>
-<script>
-    // Vimeo Player API
-    const iframe = document.querySelector('iframe');
+        function updateSpots() {
+            const shouldUpdate = Math.random() < 0.15;
+            if (shouldUpdate && spotsLeft > 2) {
+                spotsLeft--;
+                const percentage = (spotsLeft / totalSpots) * 100;
+                spotsLeftEl.textContent = spotsLeft;
+                spotsBarEl.style.width = `${percentage}%`;
+                const container = document.getElementById('urgency-container');
+                container.style.transform = 'scale(1.02)';
+                setTimeout(() => { container.style.transform = 'scale(1)'; }, 200);
+            }
+        }
+        setInterval(updateSpots, (Math.random() * 10000) + 8000);
+    });
+    
+    // Script Swiper Productos
+    document.addEventListener('DOMContentLoaded', function() {
+        const swiper = new Swiper('.product-slider', {
+            loop: true,
+            spaceBetween: 30,
+            centeredSlides: true,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: {
+                640: { slidesPerView: 1, spaceBetween: 20 },
+                768: { slidesPerView: 2, spaceBetween: 30 },
+                1024: { slidesPerView: 3, spaceBetween: 30 },
+            }
+        });
+    });
+
+    // Script Video Player y Temporizador
+    const iframe = document.querySelector('iframe[title="Charla Informativa Rena Ware"]');
     const player = new Vimeo.Player(iframe);
-    
-    let watchedTime = 0;
-    let totalDuration = 22 * 60; // 22 minutos en segundos
-    let lastPosition = 0;
-    let milestones = {25: false, 50: false, 75: false, 90: false};
-    let viewerCount = 28;
-    
-    // Elementos del DOM
+    let totalDuration = 22 * 60;
     const minutesEl = document.getElementById('minutes');
     const secondsEl = document.getElementById('seconds');
     const progressBar = document.getElementById('progressBar');
     const completionMessage = document.getElementById('completionMessage');
     const progressText = document.getElementById('progressText');
-    const milestoneContainer = document.getElementById('milestoneContainer');
-    const viewerCountEl = document.getElementById('viewerCount');
     const floatingCTA = document.getElementById('floatingCTA');
-    
-    // Simular contador de viewers
-    function updateViewerCount() {
-        viewerCount += Math.random() > 0.6 ? 1 : (Math.random() > 0.8 ? -1 : 0);
-        viewerCount = Math.max(15, Math.min(45, viewerCount));
-        viewerCountEl.textContent = viewerCount;
-    }
-    
-    // Función para formatear tiempo
-    function formatTime(seconds) {
-        const mins = Math.floor(seconds / 60);
-        const secs = seconds % 60;
+
+    function formatTime(totalSeconds) {
+        const mins = Math.floor(totalSeconds / 60);
+        const secs = Math.floor(totalSeconds % 60);
         return {
             minutes: mins.toString().padStart(2, '0'),
             seconds: secs.toString().padStart(2, '0')
         };
     }
-    
-    // Función para mostrar milestone
-    function showMilestone(percentage) {
-        if (milestones[percentage]) return;
-        milestones[percentage] = true;
-        
-        const messages = {
-            25: "🎯 ¡Excelente! Entiendes el problema",
-            50: "🔥 ¡Perfecto! Conoces la solución",
-            75: "⭐ ¡Increíble! Sabes cómo ganar",
-            90: "🏆 ¡LISTO! Tienes toda la info"
-        };
-        
-        // Crear contenedor para milestone + botón
-        const milestoneDiv = document.createElement('div');
-        milestoneDiv.style.marginBottom = '10px';
-        
-        const badge = document.createElement('div');
-        badge.className = 'milestone-badge';
-        badge.textContent = messages[percentage];
-        
-        const button = document.createElement('a');
-        button.href = 'https://wa.me/51994607605?text=%F0%9F%8E%89%20%C2%A1Nelson!%20Complet%C3%A9%20la%20charla%20y%20quiero%20empezar%20con%20Rena%20Ware...';
-        button.target = '_blank';
-        button.textContent = 'Únete ahora';
-        button.style.cssText = 'display: block; text-align: center; background: #22c55e; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; text-decoration: none; margin-top: 6px; transition: all 0.3s ease;';
-        button.onmouseover = function() { this.style.background = '#16a34a'; };
-        button.onmouseout = function() { this.style.background = '#22c55e'; };
-        
-        milestoneDiv.appendChild(badge);
-        milestoneDiv.appendChild(button);
-        milestoneContainer.appendChild(milestoneDiv);
-        
-        setTimeout(() => {
-            milestoneDiv.style.opacity = '0.7';
-        }, 3000);
-    }
-    
-    // Función para actualizar el timer
-    function updateTimer() {
-        const time = formatTime(watchedTime);
+
+    function updateCountdown(currentTime) {
+        const remainingTime = Math.max(0, totalDuration - currentTime);
+        const time = formatTime(remainingTime);
         minutesEl.textContent = time.minutes;
         secondsEl.textContent = time.seconds;
-        
-        // Actualizar barra de progreso
-        const progress = (watchedTime / totalDuration) * 100;
-        progressBar.style.width = Math.min(progress, 100) + '%';
-        
-        // Actualizar texto de progreso
-        if (progress < 25) {
-            progressText.textContent = "🎬 Entendiendo el problema y la oportunidad";
-        } else if (progress < 50) {
-            progressText.textContent = "💡 Conociendo la solidez de Rena Ware";
-        } else if (progress < 75) {
-            progressText.textContent = "💎 Descubriendo los productos exitosos";
-        } else if (progress < 90) {
-            progressText.textContent = "💰 Aprendiendo el plan de ganancias";
-        } else {
-            progressText.textContent = "🎉 ¡Listo! Ya sabes todo lo necesario";
-        }
-        
-        // Mostrar botón flotante después del 25%
-        if (progress >= 25 && floatingCTA) {
+
+        const watchedPercent = (currentTime / totalDuration) * 100;
+        progressBar.style.width = watchedPercent + '%';
+
+        if (watchedPercent >= 25 && floatingCTA) {
             floatingCTA.style.display = 'block';
         }
-        
-        // Verificar milestones
-        Object.keys(milestones).forEach(milestone => {
-            if (progress >= milestone && !milestones[milestone]) {
-                showMilestone(parseInt(milestone));
-            }
-        });
-        
-        // Mostrar mensaje de completación si ha visto más del 90%
-        if (progress >= 90 && !completionMessage.hasBeenShown) {
+        if (watchedPercent >= 90 && !completionMessage.hasBeenShown) {
             completionMessage.style.display = 'block';
             completionMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
             completionMessage.hasBeenShown = true;
         }
     }
-    
-    // Escuchar eventos del reproductor
-    player.on('timeupdate', function(data) {
-        const currentTime = Math.floor(data.seconds);
-        
-        // Solo contar tiempo hacia adelante (no hacia atrás)
-        if (currentTime > lastPosition) {
-            watchedTime += (currentTime - lastPosition);
-        }
-        
-        lastPosition = currentTime;
-        updateTimer();
-    });
-    
-    // Obtener duración real del video
+
     player.getDuration().then(function(duration) {
         totalDuration = Math.floor(duration);
+        updateCountdown(0);
+    }).catch(function(error) {
+        console.warn("No se pudo obtener la duración del video, usando valor por defecto.");
+        updateCountdown(0);
     });
-    
-    // Prevenir que se salte demasiado hacia adelante
-    player.on('seeked', function(data) {
-        const currentTime = Math.floor(data.seconds);
-        
-        // Si salta más de 30 segundos hacia adelante, ajustar el tiempo visto
-        if (currentTime > lastPosition + 30) {
-            watchedTime = Math.min(watchedTime, currentTime - 30);
-        }
-        
-        lastPosition = currentTime;
-        updateTimer();
-    });
-    
-    // Inicializar timer
-    updateTimer();
-    
-    // Actualizar contador de viewers cada 15-30 segundos
-    setInterval(updateViewerCount, Math.random() * 15000 + 15000);
-    
-    // Animación mejorada del botón CTA basada en progreso
-    setInterval(function() {
-        const ctaButton = document.querySelector('.cta-button');
-        const progress = (watchedTime / totalDuration) * 100;
-        
-        if (progress >= 50) {
-            ctaButton.style.animation = 'pulse-glow 1.5s infinite';
-        }
-        if (progress >= 75) {
-            ctaButton.style.animation = 'pulse-glow 1s infinite, shake 3s infinite';
-        }
-    }, 5000);
-</script>
 
+    player.on('timeupdate', function(data) {
+        const currentTime = Math.floor(data.seconds);
+        updateCountdown(currentTime);
+    });
+    </script>
+    
+<div id="exit-intent-popup" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[100] hidden" style="backdrop-filter: blur(8px);">
+    
+    <div id="popup-content" class="bg-gradient-to-br from-slate-800 to-slate-900 text-white max-w-lg w-full rounded-2xl shadow-2xl p-8 relative transform scale-95 opacity-0 transition-all duration-300 ease-out">
+        
+        <button id="close-popup" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <div class="text-center">
+            <div class="text-5xl mb-4">✋</div>
+            <h2 class="text-3xl font-extrabold text-amber-400 mb-2">¡Espera un momento!</h2>
+            <p class="text-slate-300 text-lg mb-6">
+                Estás a un paso de descubrir cómo generar <strong>S/ 2,000 extra al mes</strong>. ¿Realmente vas a dejar pasar esta oportunidad por solo S/ 60?
+            </p>
+            
+            <a href="https://wa.me/51994607605?text=👋%20¡Casi%20me%20voy!%20Pero%20quiero%20darle%20una%20oportunidad.%20Cuéntame%20cómo%20empiezo%20con%20los%20S/%2060." 
+               target="_blank"
+               class="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-4 px-8 rounded-lg shadow-xl text-lg cta-button inline-block w-full transform hover:scale-105 transition-transform duration-300">
+                OK, ¡QUIERO MI OPORTUNIDAD!
+            </a>
+            
+            <button id="decline-popup" class="text-slate-500 text-sm mt-4 hover:text-white transition-colors">No, gracias. Dejaré pasar la oportunidad.</button>
+        </div>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('exit-intent-popup');
+    const popupContent = document.getElementById('popup-content');
+    const closeButton = document.getElementById('close-popup');
+    const declineButton = document.getElementById('decline-popup');
+    let hasBeenShown = false;
+
+    // Función para mostrar el pop-up
+    const showPopup = () => {
+        if (hasBeenShown) return;
+        popup.classList.remove('hidden');
+        setTimeout(() => {
+            popupContent.classList.remove('scale-95', 'opacity-0');
+            popupContent.classList.add('scale-100', 'opacity-100');
+        }, 50); // Pequeño delay para que la transición se vea
+        hasBeenShown = true;
+    };
+
+    // Función para ocultar el pop-up
+    const hidePopup = () => {
+        popupContent.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            popup.classList.add('hidden');
+        }, 300); // Espera a que la animación de salida termine
+    };
+
+    // Evento para detectar la intención de salida
+    document.addEventListener('mouseout', (e) => {
+        // Si el mouse sale por la parte superior de la ventana
+        if (e.clientY <= 0) {
+            showPopup();
+        }
+    });
+
+    // Eventos para cerrar el pop-up
+    closeButton.addEventListener('click', hidePopup);
+    declineButton.addEventListener('click', hidePopup);
+
+    // Cerrar si se hace clic fuera del contenido del pop-up
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            hidePopup();
+        }
+    });
+});
+</script>
 </body>
+
 </html>
